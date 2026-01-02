@@ -1,0 +1,636 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>SARA Central Mosque</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<!-- Fonts -->
+<link href="https://fonts.googleapis.com/css2?family=Amiri&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+
+<style>
+*{margin:0;padding:0;box-sizing:border-box;}
+
+body{
+    font-family:'Poppins',sans-serif;
+    background:lightblue;
+    color:#222;
+    overflow-x:hidden;
+}
+
+/* 🌙 Floating Islamic Animation */
+.star{
+    position:fixed;
+    width:6px;
+    height:6px;
+    background:gold;
+    border-radius:50%;
+    animation:float 6s infinite ease-in-out;
+    opacity:0.7;
+}
+@keyframes float{
+    0%{transform:translateY(0);}
+    50%{transform:translateY(-20px);}
+    100%{transform:translateY(0);}
+}
+
+header{
+    height:100vh;
+    background:
+    linear-gradient(rgba(0,0,0,.6),rgba(0,0,0,.6)),
+    url('https://images.unsplash.com/photo-1584551246679-0daf3d275d0f') center/cover;
+    color:white;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+    text-align:center;
+}
+
+header h1{
+    font-size:3.5rem;
+    letter-spacing:3px;
+}
+
+header h2{
+    font-family:'Amiri',serif;
+    font-size:2rem;
+    margin-top:10px;
+}
+
+nav{
+    position:fixed;
+    top:0;
+    width:100%;
+    background:rgba(0,0,0,.85);
+    padding:12px;
+    z-index:1000;
+}
+
+nav ul{
+    display:flex;
+    justify-content:center;
+    list-style:none;
+}
+
+nav ul li{
+    margin:0 7px;
+}
+
+nav ul li a{
+    color:white;
+    text-decoration:none;
+}
+
+section{
+    padding:80px 10%;
+}
+
+.section-title{
+    text-align:center;
+    font-size:2.4rem;
+    margin-bottom:30px;
+}
+
+/* 🕌 Prayer Times */
+.prayer-table{
+    max-width:500px;
+    margin:auto;
+    border-collapse:collapse;
+    background:white;
+    border-radius:10px;
+    overflow:hidden;
+    box-shadow:0 5px 15px rgba(0,0,0,.1);
+}
+
+.prayer-table th,
+.prayer-table td{
+    padding:15px;
+    text-align:center;
+    border-bottom:1px solid #ddd;
+}
+
+.prayer-table th{
+    background:#1b4332;
+    color:white;
+}
+
+/* Gallery */
+.gallery{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+    gap:20px;
+}
+
+.gallery img{
+    width:100%;
+    border-radius:10px;
+    transition:.4s;
+}
+
+.gallery img:hover{
+    transform:scale(1.05);
+}
+
+/* Media */
+.media-box{
+    text-align:center;
+}
+
+audio{
+    width:100%;
+    max-width:650px;
+    margin-top:15px;
+}
+
+/* Arabic Section */
+.arabic{
+    font-family:'Amiri',serif;
+    font-size:1.6rem;
+    direction:rtl;
+    text-align:center;
+    line-height:2.5;
+}
+
+/* Contact */
+.contact{
+    text-align:center;
+    font-size:1.1rem;
+    line-height:2;
+}
+.circle-img {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 4px solid #4CAF50;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+}
+.banner {
+      width: 100%;
+      max-height: 300px;
+      overflow: hidden;
+    }
+
+    .banner img {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+footer{
+    background:#1b4332;
+    color:white;
+    text-align:center;
+    padding:25px;
+}
+.countdown{
+    text-align:center;
+    font-size:1.4rem;
+    margin-top:15px;
+    font-weight:600;
+}
+
+iframe{
+    width:100%;
+    height:350px;
+    border:0;
+    border-radius:10px;
+}
+.map-container {
+  width: 100%;
+  max-width: 800px;
+  margin: auto;
+  text-align:center;
+}
+.btn {
+  display: inline-block;
+  padding: 10px 20px;
+  background-color: #007bff;
+  color: white;
+  text-decoration: none;
+  border-radius: 6px;
+  font-weight: 600;
+}
+
+.btn:hover {
+  background-color: #0056b3;
+}
+.box {
+  padding: 15px;
+  margin-bottom: 20px;
+  background-color:orange;
+  border: 2px solid blue;
+}
+
+h3 {
+  font-size: 15px;
+  font-family: Arial, sans-serif;
+  color: #2c3e50;
+  text-align: center;
+  margin-bottom: 20px;
+  background-color:green;
+}
+.comment-box {
+  width: 300px;
+  margin: 50px auto;
+  background: #fff;
+  padding: 15px;
+  border-radius: 6px;
+}
+
+input, textarea {
+  width: 80%;
+  padding: 8px;
+  margin-bottom: 10px;
+}
+
+button {
+  padding: 8px 15px;
+  cursor: pointer;
+}
+
+.comment {
+  background: #eee;
+  padding: 10px;
+  margin-top: 10px;
+  border-radius: 4px;
+}
+
+.comment small {
+  color: #555;
+}
+  .container {
+      width: 300px;
+      padding: 20px;
+      margin: 40px auto;
+      background-color: #ffffff;
+      border-radius: 8px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    }
+     .box {
+    width: 300px;
+    padding: 20px;
+    margin: 40px auto;
+    background-color: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+    font-family: Arial, sans-serif;
+  }
+
+  .box h2 {
+    margin-top: 0;
+  }
+  img-container {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  border: 3px solid white;
+  box-shadow: 0 5px 12px rgba(0, 0, 0, 0.4);
+  object-fit: cover;
+}
+</style>
+</style>
+</head>
+
+<body>
+
+<!-- ✨ Floating stars -->
+<div class="star" style="top:20%;left:10%"></div>
+<div class="star" style="top:40%;left:80%"></div>
+<div class="star" style="top:70%;left:30%"></div>
+
+<nav>
+<ul>
+<li><a href="#home">Home</a></li>
+<li><a href="#gallery">Gallery</a></li>
+<li><a href="#khutbah">khutbah</a></li>
+<li><a href="#about">About</a></li>
+<li><a href="#contact">Contact</a></li>
+</ul>
+</nav>
+
+<header id="home">
+<h1>SARA CENTRAL MOSQUE</h1>
+<h2>مسجد سارة ا  لمركزي</h2>
+<p>A Place of Faith, Peace & Unity</p>
+ <div class="banner">
+     <marquee direction="left" behavior="scroll" speed="5">
+  أهلاً وسهلاً مرحباً بك
+</marquee>
+    <img src="banner.png" alt="Website Banner">
+    </div>
+</header>
+    <div class="box">
+    <marquee>
+    <h4>WELLCOME</h4>
+    </marquee>
+    </div>
+<div class="box">
+    <center
+    <p>Welcome to Sara Central Mosque
+Sara Central Mosque is a welcoming home for worship, learning, and connection. We strive to serve our community by nurturing faith, promoting understanding, and supporting one another through prayer, education, and charitable work. All are welcome.</p>
+</div>
+
+
+<!-- 📖 Arabic Text (Not a Nav Link) -->
+<section>
+<div class="circle container">
+<h2 class="section-title">Qur’anic Reminder</h2>
+<h2>
+<div class="arabic">
+﴿ إِنَّ الصَّلَاةَ كَانَتْ عَلَى الْمُؤْمِنِينَ كِتَابًا مَوْقُوتًا ﴾  
+<br>
+</h2>
+صدق الله العظيم
+</div>
+</div>
+<div class="container">
+<h2>يَا أَيُّهَا الَّذِينَ آمَنُوا إِذَا نُودِيَ لِلصَّلَاةِ مِن يَوْمِ الْجُمُعَةِ فَاسْعَوْا إِلَىٰ ذِكْرِ اللَّهِ وَذَرُوا الْبَيْعَ ۚ ذَٰلِكُمْ خَيْرٌ لَّكُمْ إِن كُنتُمْ تَعْلَمُونَ</h2>
+صدق الله العظيم
+</div>
+
+<!-- 🕋 Prayer Times -->
+<h3 class="section-title">Prayer Times</h3>
+<table class="prayer-table">
+<tr><th>Prayer</th><th>Time</th></tr>
+<tr><td>Fajr</td><td>5:10 AM</td></tr>
+<tr><td>Dhuhr</td><td>1:50 PM</td></tr>
+<tr><td>Asr</td><td>3:50 PM</td></tr>
+<tr><td>Maghrib</td><td>6:30 PM</td></tr>
+<tr><td>Isha</td><td>8:00 PM</td></tr>
+</table>
+</section>
+<!-- ⏳ Countdown -->
+<section id="countdown">
+<h2 class="section-title">Next Prayer Countdown</h2>
+<div class="countdown" id="nextPrayer">Loading...</div>
+</section>
+<h3>Visit Our Partner</h3>
+<center>
+    <div class="container">
+        <img 
+  src="fit.jpg" 
+  alt="Profile picture"
+  style="width:80px; height:80px; border-radius:50%; object-fit:cover;"
+>
+               
+        <a href="https://fityanumedia.com" class="btn">Fityanu _____Media</a>
+        
+          </div>
+          <div class="container">
+              <img src="Qafila.png" style="width:80px; height:80;">
+        <a href="https://qafilatulmahabbah.org.ng" class="btn">Qafilatul Mahabbah</a>
+    </div>
+    <div class="container">
+        <img 
+  src="prof.jpg" 
+  alt="Profile picture"
+  style="width:80px; height:80px; border-radius:50%; object-fit:cover;"
+>
+    
+<a href="https://www.facebook.com/profmaqari" class="btn">Prof Ibrahim Maqary</a>
+</div>
+
+</center>
+
+<center>
+<!-- 🖼 Gallery -->
+<section id="gallery">
+<div class="container">
+<h2 class="section-title">Imams Gallery</h2></div>
+<img src="usman.jpg" class="circle-img">
+<h4>Imam Usman Khamis</h4>
+<h2>Cheif Imam</h2>
+<a href="tel:+234 803 896 4479" > <img src="call.png" alt="Description" width="30" height="30"></a>
+<a href="mailto:usmankhamisusara@gmail.com"> <img src="email.png" alt="Description" width="30" height="30"></a>
+<a href="https://www.facebook.com/usman.khamisusara"><img src="facebook.png" alt="Description" width="30" height="30">
+ </a>
+ <a href="https://wa.me/+234 803 896 4479">
+  <img src="Whatsapp.png" alt="Description" width="30" height="30">
+  </a><br>
+  
+<img src="sani.jpg" class="circle-img">
+<h4>Imam Sani Musa Adam</h4>
+<h2>Second Imam</h2>
+<a href="tel:+234 803 896 4479" > <img src="call.png" alt="Description" width="30" height="30"></a>
+<a href="mailto:sanimusaadamusara@gmail.com"> <img src="email.png" alt="Description" width="30" height="30"></a>
+<a href="https://www.facebook.com/profile.php?id=100076884948743"><img src="facebook.png" alt="Description" width="30" height="30">
+ </a>
+ <a href="https://wa.me/+234 803 896 4479">
+  <img src="Whatsapp.png" alt="Description" width="30" height="30">
+  </a><br>
+<img src="ashiru.jpg" class="circle-img">
+<h4>Imam Ashiru Adahama</h4>
+<h2>Third Imam</h2>
+<a href="tel:+1239016983776" > <img src="call.png" alt="Description" width="30" height="30"></a>
+<a href="mailto:ashiruadahama@gmail.com"> <img src="email.png" alt="Description" width="30" height="30"></a>
+<a href="https://www.facebook.com/profile.php?id=100093107389268"><img src="facebook.png" alt="Description" width="30" height="30">
+ </a>
+ <a href="https://wa.me/+1239016983776">
+  <img src="Whatsapp.png" alt="Description" width="30" height="30">
+  </a><br>
+
+</div>
+</section>
+</center>
+
+<!-- 🎧 khutbah -->
+<section id="khutbah">
+    <div class="container">
+<h2 class="section-title">Khutbah</h2>
+</div>
+<div class="container">
+<i>click here to listen</i>
+<div class="media-box">
+<audio controls>
+<source src="free.aac">
+</audio>
+<h5>Juma'at Khutba</h5>
+<i>by Usman Khamis</i>
+</div>
+<div class="media-box">
+<audio controls>
+<source src="https://www.islamcan.com/audio/adhan/free.mp3">
+</audio>
+<h5>Free Khutba</h5>
+<i>by Ashir Adahama</i>
+</div>
+<div class="media-box">
+<audio controls>
+<source src="https://www.islamcan.com/audio/adhan/azan1.mp3">
+</audio>
+<h5>Free Khutba</h5>
+<i>by Mallam Sunusi Muhammad</i>
+</div>
+<center>
+<i>click here to watch vedios</i>
+<a href="https://youtu.be/r4AEunw2X9M?si=jLxk5nvyeE5zlUYX" class="btn">Vedios</a>
+</div>
+</section>
+<section id="about">
+<center>
+ <div class="container">
+<h2 class="section-about">About Us</h2>
+</div>
+<div class="container">
+<p style="backgroung-color:lightblue;text-align:center;max-width:800px;margin:auto;font-size:1.1rem;">
+Sara Central Mosque is a central place of worship and community life for Muslims in Sara and its surrounding areas. The mosque is committed to upholding the teachings of the Qur’an and the Sunnah of the Prophet Muhammad (peace be upon him), providing a peaceful and welcoming environment for prayer, reflection, and spiritual development.
+In addition to the five daily prayers and Jumu’ah services, Sara Central Mosque serves as a center for Islamic education, community outreach, and charitable activities. We aim to nurture faith, promote moral values, and support the spiritual and social well-being of individuals and families.
+The mosque strives to foster unity, mutual respect, and cooperation within the Muslim community while encouraging positive engagement with the wider society. Our mission is to serve Allah, strengthen our community, and guide future generations upon the path of knowledge, compassion, and righteousness..
+</p>
+</div>
+</section>
+
+<!-- 📞 Contact -->
+<section id="contact">
+<div class="container">
+<h2 class="section-title">Contact Us</h2>
+</div>
+<div class="contact">
+📍 Address: SARA FADA STREET GWARAML.G, JIGAWA STATE<br>
+<p>click here to follow</p>
+<a href="https://maps.app.goo.gl/Y1boaQSmrQPX6wwf9" class="btn">Follow The Location</a>
+</div>
+<center>
+<h3>Follows On</h3>
+<a href="tel:+1l239073716126">
+     <img 
+  src="call.png" 
+  alt="Profile picture"
+  style="width:40px; height:40px; border-radius:50%; object-fit:cover;"
+></a>
+<a href="mailto:umargarbasara@gmail.com">
+     <img 
+  src="email.png" 
+  alt="Profile picture"
+  style="width:40px; height:40px; border-radius:50%; object-fit:cover;"
+></a>
+<a href="https://www.facebook.com/share/v/14Tv8GjeNv9/">
+     <img 
+  src="facebook.png" 
+  alt="Profile picture"
+  style="width:40px; height:40px; border-radius:50%; object-fit:cover;"
+>
+ </a>
+ <a href="https://chat.whatsapp.com/H2XQaN4DyE6HcXpzpSXi8o">
+      <img 
+  src="whatsapp.png" 
+  alt="Profile picture"
+  style="width:40px; height:40px; border-radius:50%; object-fit:cover;">
+  </a>
+<a href="https://youtu.be/r4AEunw2X9M?si=jLxk5nvyeE5zlUYX">
+    <img 
+  src="youtube.png" 
+  alt="Profile picture"
+  style="width:40px; height:40px; border-radius:50%; object-fit:cover;"
+>
+  </a>
+   <div class="comment-box">
+    <h2> Comment</h2>
+
+    <input type="text" id="username" placeholder="Username">
+    <input type="email" id="email" placeholder="Email">
+    <textarea id="commentInput" placeholder="Write your comment..."></textarea>
+
+    <button onclick="addComment()">Submit</button>
+
+    <h3>Comments</h3>
+    <div id="commentList"></div>
+  </div>
+
+  <script src="script.js"></script>
+</section>
+
+<footer>
+<p>© 2026 SARA Central Mosque All Right Reserved</p>
+<p>Developed By Umar Garba</p>
+</footer>
+<script>
+const prayers = [
+    {name:"Fajr", time:"05:10"},
+    {name:"Dhuhr", time:"1:50"},
+    {name:"Asr", time:"3:50"},
+    {name:"Maghrib", time:"6:30"},
+    {name:"Isha", time:"8:00"}
+];
+function updateCountdown(){
+    const now = new Date();
+    let next;
+
+    for(let p of prayers){
+        let [h,m] = p.time.split(":");
+        let t = new Date();
+        t.setHours(h,m,0);
+        if(t > now){ next = {name:p.name,time:t}; break; }
+    }
+
+    if(!next){
+        let [h,m] = prayers[0].time.split(":");
+        let t = new Date();
+        t.setDate(t.getDate()+1);
+        t.setHours(h,m,0);
+        next = {name:prayers[0].name,time:t};
+    }
+
+    let diff = next.time - now;
+    let hrs = Math.floor(diff/3600000);
+    let mins = Math.floor((diff%3600000)/60000);
+    let secs = Math.floor((diff%60000)/1000);
+
+    document.getElementById("nextPrayer").innerText =
+        `${next.name} in ${hrs}h ${mins}m ${secs}s`;
+}
+
+setInterval(updateCountdown,1000);
+updateCountdown();
+// Load comments on page load
+window.onload = function () {
+  const comments = JSON.parse(localStorage.getItem("comments")) || [];
+  comments.forEach(showComment);
+};
+
+function addComment() {
+  const username = document.getElementById("username").value.trim();
+  const email = document.getElementById("email").value.trim();
+  const commentText = document.getElementById("commentInput").value.trim();
+
+  if (!username || !email || !commentText) {
+    alert("All fields are required!");
+    return;
+  }
+
+  const comment = {
+    username: username,
+    email: email,
+    text: commentText,
+    date: new Date().toLocaleString()
+  };
+
+  // Save to localStorage
+  const comments = JSON.parse(localStorage.getItem("comments")) || [];
+  comments.push(comment);
+  localStorage.setItem("comments", JSON.stringify(comments));
+
+  showComment(comment);
+
+  // Clear inputs
+  document.getElementById("username").value = "";
+  document.getElementById("email").value = "";
+  document.getElementById("commentInput").value = "";
+}
+
+function showComment(comment) {
+  const div = document.createElement("div");
+  div.className = "comment";
+  div.innerHTML = `
+    <strong>${comment.username}</strong> 
+    <small>(${comment.email})</small><br>
+    <small>${comment.date}</small>
+    <p>${comment.text}</p>
+  `;
+
+  document.getElementById("commentList").appendChild(div);
+}
+</script>
+</body>
+</html>
